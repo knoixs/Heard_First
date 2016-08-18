@@ -1,10 +1,32 @@
+# man = []
+# other = []
+# try:
+#     data = open('sketch.txt')
+#     for each_line in data:
+#         try:
+#             (role, line_spoken) = each_line.split(":", 1)
+#             line_spoken = line_spoken.strip()
+#             if role == 'Man':
+#                 man.append(line_spoken)
+#             elif role == 'Other Man':
+#                 other.append(line_spoken)
+#         except:
+#             pass
+#     data.close()
+# except IOError:
+#     print ('The datafile is missing')
+#
+# print (man)
+# print (other)
+
 man = []
 other = []
+
 try:
     data = open('sketch.txt')
     for each_line in data:
         try:
-            (role, line_spoken) = each_line.split(":", 1)
+            (role, line_spoken) = each_line.split(':', 1)
             line_spoken = line_spoken.strip()
             if role == 'Man':
                 man.append(line_spoken)
@@ -16,5 +38,8 @@ try:
 except IOError:
     print ('The datafile is missing')
 
-print (man)
-print (other)
+try:
+    man_file = open('man_data.txt', 'w').writelines(man)
+    other_file = open('other_data.txt', 'w').writelines(other)
+except IOError:
+    print('file error')
