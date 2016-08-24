@@ -16,6 +16,7 @@ chater6,定制数据对象，打包代码和数据
 #
 #
 # 将每个数据规范为'.'
+
 def sanitize(item):
     if '-' in item:
         split_item = '-'
@@ -24,7 +25,7 @@ def sanitize(item):
     else:
         return item
     (mit, sec) = item.split(split_item)
-    return (mit + '.' + sec)
+    return mit + '.' + sec
 
 
 #
@@ -70,3 +71,43 @@ def get_coach_data(filename):
     except IOError as err:
         print 'file error' + str(err)
         return None
+
+
+# # 开始使用类
+# class Athlete:
+#     def __init__(self, value=0):
+#         # The code to initialize a "Athlete" object.
+#         self.thing = value
+#
+#     def how_big(self):
+#         return len(self.thing)
+#
+#
+# a = Athlete()  # Athlete().__init__(a) -->def __init__(self)
+# d=Athlete("Holy girl")
+# print d
+
+class Athlete:
+    def __init__(self, a_name, a_dob=None, a_times=[]):
+        # """
+        #
+        # :param a_name:
+        # :param a_dob:
+        # :param a_times:
+        # :type a_name:str
+        # :type a_dob:str
+        # :type a_times:list
+        # """
+
+        self.name = a_name
+        self.dob = a_dob
+        self.times = a_times
+
+
+sara = Athlete('Sara sweeney', '2002-6-17', ['2:58', '2.58', 1.56])
+james = Athlete('James Jones')
+
+print type(sara)
+print sara.name, sara.dob
+print james.name, james.dob, james.times
+print sara
