@@ -59,18 +59,18 @@ def sanitize(item):
 # # cless['sudu']=None
 # # print cless
 
-# 讲文件中的数据读出，直接构建字典
-def get_coach_data(filename):
-    try:
-        with open('hfpy_ch6_data/' + filename) as f:
-            data = f.readline()
-            temple = data.strip().split(',')
-            return {'name': temple.pop(0),
-                    'dob': temple.pop(0),
-                    'time': str(sorted(set(sanitize(t) for t in temple))[0:3])}
-    except IOError as err:
-        print 'file error' + str(err)
-        return None
+# # 讲文件中的数据读出，直接构建字典
+# def get_coach_data(filename):
+#     try:
+#         with open('hfpy_ch6_data/' + filename) as f:
+#             data = f.readline()
+#             temple = data.strip().split(',')
+#             return {'name': temple.pop(0),
+#                     'dob': temple.pop(0),
+#                     'time': str(sorted(set(sanitize(t) for t in temple))[0:3])}
+#     except IOError as err:
+#         print 'file error' + str(err)
+#         return None
 
 
 # # 开始使用类
@@ -87,27 +87,63 @@ def get_coach_data(filename):
 # d=Athlete("Holy girl")
 # print d
 
-class Athlete:
-    def __init__(self, a_name, a_dob=None, a_times=[]):
-        # """
-        #
-        # :param a_name:
-        # :param a_dob:
-        # :param a_times:
-        # :type a_name:str
-        # :type a_dob:str
-        # :type a_times:list
-        # """
+# class Athlete:
+#     def __init__(self, a_name, a_dob=None, a_times=[]):
+#         # """
+#         #
+#         # :param a_name:
+#         # :param a_dob:
+#         # :param a_times:
+#         # :type a_name:str
+#         # :type a_dob:str
+#         # :type a_times:list
+#         # """
+#
+#         self.name = a_name
+#         self.dob = a_dob
+#         self.times = a_times
+#
+#
+# sara = Athlete('Sara sweeney', '2002-6-17', ['2:58', '2.58', 1.56])
+# james = Athlete('James Jones')
+#
+# print type(sara)
+# print sara.name, sara.dob
+# print james.name, james.dob, james.times
+# print sara
 
+
+class Athlete():
+    def __init__(self, a_name, a_dob=None, a_times=[]):
         self.name = a_name
         self.dob = a_dob
         self.times = a_times
 
+    def top3(self):
+        return sorted(set(sanitize(t) for t in self.times))[0:3]
 
-sara = Athlete('Sara sweeney', '2002-6-17', ['2:58', '2.58', 1.56])
-james = Athlete('James Jones')
+    def add_time(self, time_value):
+        self.times.append(time_value)
 
-print type(sara)
-print sara.name, sara.dob
-print james.name, james.dob, james.times
-print sara
+    def add_times(self, list_of_times):
+        self.times.extend(list_of_times)
+
+
+def get_coach_data(filename):
+    try:
+        with open('hfpy_ch6_data/' + filename) as f:
+            data = f.readline()
+            temp = data.strip().split(',')
+            return Athlete(temp.pop(0), temp.pop(0), temp)
+    except IOError as err:
+        print 'file error' + str(err)
+        return None
+
+
+james = get_coach_data('james2.txt')
+vera = Athlete('vera vi')
+vera.add_time('1.31')
+print vera.top3()
+vera.add_times(['2,22', '1-21', '2；22'])
+print vera.top3()
+print james.name + "'s fastest times are " + str(james.top3())
