@@ -194,10 +194,9 @@ def get_coach_data(filename):
         print 'file error' + str(err)
         return None
 
-
-james = get_coach_data('james2.txt')
-
-print james
-print james.dob
-print james.name
-print james.top3()
+# james = get_coach_data('james2.txt')
+#
+# print james
+# print james.dob
+# print james.name
+# print james.top3()
