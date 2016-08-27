@@ -112,38 +112,92 @@ def sanitize(item):
 # print james.name, james.dob, james.times
 # print sara
 
+#
+# class Athlete():
+#     def __init__(self, a_name, a_dob=None, a_times=[]):
+#         self.name = a_name
+#         self.dob = a_dob
+#         self.times = a_times
+#
+#     def top3(self):
+#         return sorted(set(sanitize(t) for t in self.times))[0:3]
+#
+#     def add_time(self, time_value):
+#         self.times.append(time_value)
+#
+#     def add_times(self, list_of_times):
+#         self.times.extend(list_of_times)
+#
+#
+# def get_coach_data(filename):
+#     try:
+#         with open('hfpy_ch6_data/' + filename) as f:
+#             data = f.readline()
+#             temp = data.strip().split(',')
+#             return Athlete(temp.pop(0), temp.pop(0), temp)
+#     except IOError as err:
+#         print 'file error' + str(err)
+#         return None
+#
+#
+# james = get_coach_data('james2.txt')
+# vera = Athlete('vera vi')
+# vera.add_time('1.31')
+# print vera.top3()
+# vera.add_times(['2,22', '1-21', '2；22'])
+# print vera.top3()
+# print james.name + "'s fastest times are " + str(james.top3())
 
-class Athlete():
+
+# #继承list类
+# class Namelist(list):
+#     def __init__(self,a_name):
+#         list.__init__([])
+#         self.name=a_name
+#
+# johnny=Namelist("jjjj")
+# print type(johnny)
+# print dir(johnny)
+
+
+# 以继承list的方式重写Athlete类
+class AthleteList(list):
     def __init__(self, a_name, a_dob=None, a_times=[]):
+        list.__init__([])
         self.name = a_name
         self.dob = a_dob
-        self.times = a_times
+        # self.times=a_times
+        self.extend(a_times)
 
     def top3(self):
-        return sorted(set(sanitize(t) for t in self.times))[0:3]
+        return sorted(set(sanitize(t) for t in self))[0:3]
 
-    def add_time(self, time_value):
-        self.times.append(time_value)
 
-    def add_times(self, list_of_times):
-        self.times.extend(list_of_times)
-
+# d=AthleteList('hh')
+# print d
+# d.append('1.1')
+# print d
+# d.extend(['2.33','2.30'])
+# print d
+# print d.top3()
+# print d.dob
+#
+# print dir(d)
 
 def get_coach_data(filename):
     try:
         with open('hfpy_ch6_data/' + filename) as f:
             data = f.readline()
             temp = data.strip().split(',')
-            return Athlete(temp.pop(0), temp.pop(0), temp)
+            return AthleteList(temp.pop(0), temp.pop(0), temp)
     except IOError as err:
         print 'file error' + str(err)
         return None
 
 
 james = get_coach_data('james2.txt')
-vera = Athlete('vera vi')
-vera.add_time('1.31')
-print vera.top3()
-vera.add_times(['2,22', '1-21', '2；22'])
-print vera.top3()
-print james.name + "'s fastest times are " + str(james.top3())
+
+print james
+print james.dob
+print james.name
+print james.top3()
