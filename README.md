@@ -12,3 +12,5 @@ piclke.dump(obj,file)
 
 form_data=cgi.FieldStorage()#获取所有表单数据并放在一个字典中
 athlete_name = form_data['which_athele'].value#从表单数据访问每一个指定的数据
+
+@property————这是一个修饰符，可以使类方法表现得像是一个类属性
