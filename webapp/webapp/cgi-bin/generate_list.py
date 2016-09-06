@@ -18,4 +18,4 @@ for each_athlete in athletes:
     print (yate.radio_button("which_athlete", athletes[each_athlete].name))
 print (yate.end_form("Select"))
 
-print (yate.include_footer({"Home": "/home/knoix/PycharmProjects/Heard_First/webapp/webapp/index.html"}))
+print (yate.include_footer({"Home": "/index.html"}))
