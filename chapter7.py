@@ -34,14 +34,14 @@ def get_from_store():
 # print dir()
 files = ['james2.txt', 'julie2.txt', 'mikey2.txt', 'sarah2.txt']
 data = put_to_store(files)
-print data
+# print data
 for each_athlete in data:
     print data[each_athlete].name + ' ' + data[each_athlete].dob
     print data[each_athlete]
 
 data_copy = get_from_store()
-print data_copy
-print type(data_copy)
-for item in data_copy:
-    print data_copy[item].name + ' ' + data_copy[item].dob
-    print data_copy[item]
+# print data_copy
+# print type(data_copy)
+# for item in data_copy:
+#     print data_copy[item].name + ' ' + data_copy[item].dob
+#     print data_copy[item]
