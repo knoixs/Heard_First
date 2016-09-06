@@ -2,35 +2,28 @@ body {
     font-family: Verdana, Geneva, Arial, sans-serif;
     font-size: small;
 }
-
 a {
     text-decoration: none;
     font-weight: 600;
     color: #cc6600;
 }
-
 a:hover {
     text-decoration: underline;
 }
-
 a img {
     border: 0;
 }
-
 h1, h2 {
     font-weight: normal;
     color: #cc6600;
     border-bottom: thin dotted #888888;
 }
-
 h1 {
     font-size: 170%;
 }
-
 h2 {
     font-size: 130%;
 }
-
 blockquote {
     font-style: italic;
 }
