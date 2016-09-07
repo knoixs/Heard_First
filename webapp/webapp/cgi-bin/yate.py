@@ -47,7 +47,7 @@ def para(para_text):
 def create_imputs(inputs_list):
     html_inputs = ''
     for each_input in inputs_list:
-        html_inputs = html_inputs + '<input="Text" name="' + each_input + '"size=40>'
+        html_inputs = html_inputs + '<input type= "Text" name="' + each_input + '"size=40>'
     return (html_inputs)
 
 
