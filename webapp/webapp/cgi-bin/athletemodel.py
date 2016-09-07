@@ -1,4 +1,4 @@
-#!/usr/bin/local/python3
+#!/usr/bin/python3
 import pickle
 import json
 

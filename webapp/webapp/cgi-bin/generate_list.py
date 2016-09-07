@@ -1,5 +1,5 @@
 # -*-coding:utf-8-*-
-#!/usr/bin/local/python3
+# !/usr/bin/python3
 
 import athletemodel
 import yate
