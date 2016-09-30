@@ -191,7 +191,7 @@ def get_coach_data(filename):
             temp = data.strip().split(',')
             return AthleteList(temp.pop(0), temp.pop(0), temp)
     except IOError as err:
-        print 'file error' + str(err)
+        print('file error' + str(err))
         return None
 
 # james = get_coach_data('james2.txt')

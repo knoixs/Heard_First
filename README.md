@@ -16,3 +16,11 @@ athlete_name = form_data['which_athele'].value#从表单数据访问每一个指
 
 @property————这是一个修饰符，可以使类方法表现得像是一个类属性
 
+```
+pop()方法
+list.pop(obj=list[-1])
+obj=list.pop(list.index)
+每次删除列表最后一个数据，可以将该数据赋值给指定的变量
+```
+
+repr()是将一个对象转成字符串显示，注意只是显示用，有些对象转成字符串没有直接的意思。如list,dict使用str()是无效的，但使用repr可以，这是为了看它们都有哪些值，为了显示之用。 
